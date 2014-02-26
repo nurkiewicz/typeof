@@ -7,6 +7,7 @@ import java.util.function.Consumer;
  * @since 22.09.13, 21:29
  */
 public class TerminalThen<S> extends Then<S> {
+
 	public TerminalThen() {
 		super(null);
 	}
@@ -20,5 +21,4 @@ public class TerminalThen<S> extends Then<S> {
 	public void orElse(Consumer<S> orElseBlock) {
 		//no-op
 	}
-
 }

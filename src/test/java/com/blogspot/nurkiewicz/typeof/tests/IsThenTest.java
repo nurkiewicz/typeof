@@ -1,7 +1,6 @@
 package com.blogspot.nurkiewicz.typeof.tests;
 
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -10,9 +9,7 @@ import java.util.Date;
 import java.util.function.Consumer;
 
 import static com.blogspot.nurkiewicz.typeof.TypeOf.whenTypeOf;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
-import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.*;
 
 /**
  * @author Tomasz Nurkiewicz
@@ -155,5 +152,4 @@ public class IsThenTest {
 		verify(mock).accept(2);
 		verifyNoMoreInteractions(mock);
 	}
-
 }

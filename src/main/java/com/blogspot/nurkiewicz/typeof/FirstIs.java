@@ -4,6 +4,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 
 public class FirstIs<S, T> {
+
 	final Then<S> parent;
 	private final S object;
 	private final Class<T> expectedType;
@@ -43,5 +44,4 @@ public class FirstIs<S, T> {
 	private boolean matchingType() {
 		return object != null && expectedType.isAssignableFrom(object.getClass());
 	}
-
 }

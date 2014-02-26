@@ -1,18 +1,13 @@
 package com.blogspot.nurkiewicz.typeof.tests;
 
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Date;
 import java.util.NoSuchElementException;
-import java.util.function.Consumer;
 
 import static com.blogspot.nurkiewicz.typeof.TypeOf.whenTypeOf;
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.fest.assertions.api.Assertions.failBecauseExceptionWasNotThrown;
-import static org.mockito.Mockito.*;
 
 /**
  * @author Tomasz Nurkiewicz
@@ -122,6 +117,7 @@ public class IsThenReturnTest {
 		//then
 		assertThat(result).isEqualTo(1);
 	}
+
 	@Test
 	public void shouldNotFailWhenNullPassed() {
 		//when
@@ -134,5 +130,4 @@ public class IsThenReturnTest {
 		//then
 		assertThat(result).isEqualTo(17);
 	}
-
 }

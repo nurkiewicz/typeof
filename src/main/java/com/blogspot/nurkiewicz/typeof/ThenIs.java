@@ -1,7 +1,6 @@
 package com.blogspot.nurkiewicz.typeof;
 
 import java.util.function.Consumer;
-import java.util.function.Function;
 
 /**
  * @author Tomasz Nurkiewicz
@@ -34,5 +33,4 @@ public class ThenIs<S, T> {
 	private boolean matchingType() {
 		return object != null && expectedType.isAssignableFrom(object.getClass());
 	}
-
 }

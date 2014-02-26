@@ -30,5 +30,4 @@ public class ReturnIs<S, T, R> {
 		}
 		return new ThenReturn<>(object);
 	}
-
 }
