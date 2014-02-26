@@ -26,6 +26,17 @@ public class IsThenReturnTest {
 		assertThat(result).isEqualTo(43);
 	}
 
+    @Test
+	public void testReturnFirstMatchingClauseWithFixedValue() {
+		//when
+		final int result = whenTypeOf(42).
+				is(Integer.class).thenReturn(43).
+				get();
+
+		//then
+		assertThat(result).isEqualTo(43);
+	}
+
 	@Test
 	public void testReturnFirstMatchingClauseOfSuperClass() {
 		//when
@@ -51,6 +62,19 @@ public class IsThenReturnTest {
 
 		//then
 		assertThat(result).isEqualTo(42 - 1);
+	}
+
+    @Test
+	public void testReturnSubsequentWithFixedValue() {
+		//when
+		final int result = whenTypeOf(42).
+				is(String.class).thenReturn(-1).
+				is(Integer.class).thenReturn(17).
+				is(Object.class).thenReturn(-1).
+				get();
+
+		//then
+		assertThat(result).isEqualTo(17);
 	}
 
 	@Test
@@ -104,6 +128,19 @@ public class IsThenReturnTest {
 			assertThat(e).hasMessage("42");
 		}
 	}
+
+    @Test
+    public void testThrowWhenGetCalledButNeitherClausesWorkedWithFixedValue() {
+        try {
+            whenTypeOf(42).
+                    is(String.class).thenReturn(-1).
+                    is(Date.class).thenReturn(-1).
+                    get();
+            failBecauseExceptionWasNotThrown(NoSuchElementException.class);
+        } catch (NoSuchElementException e) {
+            assertThat(e).hasMessage("42");
+        }
+    }
 
 	@Test
 	public void shouldNotFailWhenNullPassedAndClosureOrElseResult() {

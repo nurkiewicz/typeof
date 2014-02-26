@@ -15,4 +15,9 @@ class TerminalReturnIs<S, T, R> extends ReturnIs<S, T, R> {
 	public ThenReturn<S, R> thenReturn(Function<T, R> resultFun) {
 		return new TerminalThenReturn<>(object, result);
 	}
+
+    @Override
+    public ThenReturn<S, R> thenReturn(R result) {
+        return new TerminalThenReturn<>(object, this.result);
+    }
 }
