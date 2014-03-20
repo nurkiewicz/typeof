@@ -1,18 +1,13 @@
 package com.blogspot.nurkiewicz.typeof.tests;
 
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Date;
 import java.util.NoSuchElementException;
-import java.util.function.Consumer;
 
 import static com.blogspot.nurkiewicz.typeof.TypeOf.whenTypeOf;
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.fest.assertions.api.Assertions.failBecauseExceptionWasNotThrown;
-import static org.mockito.Mockito.*;
 
 /**
  * @author Tomasz Nurkiewicz
@@ -25,6 +20,17 @@ public class IsThenReturnTest {
 		//when
 		final int result = whenTypeOf(42).
 				is(Integer.class).thenReturn(i -> i + 1).
+				get();
+
+		//then
+		assertThat(result).isEqualTo(43);
+	}
+
+    @Test
+	public void testReturnFirstMatchingClauseWithFixedValue() {
+		//when
+		final int result = whenTypeOf(42).
+				is(Integer.class).thenReturn(43).
 				get();
 
 		//then
@@ -56,6 +62,19 @@ public class IsThenReturnTest {
 
 		//then
 		assertThat(result).isEqualTo(42 - 1);
+	}
+
+    @Test
+	public void testReturnSubsequentWithFixedValue() {
+		//when
+		final int result = whenTypeOf(42).
+				is(String.class).thenReturn(-1).
+				is(Integer.class).thenReturn(17).
+				is(Object.class).thenReturn(-1).
+				get();
+
+		//then
+		assertThat(result).isEqualTo(17);
 	}
 
 	@Test
@@ -110,6 +129,19 @@ public class IsThenReturnTest {
 		}
 	}
 
+    @Test
+    public void testThrowWhenGetCalledButNeitherClausesWorkedWithFixedValue() {
+        try {
+            whenTypeOf(42).
+                    is(String.class).thenReturn(-1).
+                    is(Date.class).thenReturn(-1).
+                    get();
+            failBecauseExceptionWasNotThrown(NoSuchElementException.class);
+        } catch (NoSuchElementException e) {
+            assertThat(e).hasMessage("42");
+        }
+    }
+
 	@Test
 	public void shouldNotFailWhenNullPassedAndClosureOrElseResult() {
 		//when
@@ -122,6 +154,7 @@ public class IsThenReturnTest {
 		//then
 		assertThat(result).isEqualTo(1);
 	}
+
 	@Test
 	public void shouldNotFailWhenNullPassed() {
 		//when
@@ -134,5 +167,4 @@ public class IsThenReturnTest {
 		//then
 		assertThat(result).isEqualTo(17);
 	}
-
 }

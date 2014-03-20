@@ -5,6 +5,7 @@ package com.blogspot.nurkiewicz.typeof;
  * @since 21.09.13, 22:22
  */
 class TerminalThenReturn<S, R> extends ThenReturn<S, R> {
+
 	private final R result;
 
 	public TerminalThenReturn(S object, R result) {

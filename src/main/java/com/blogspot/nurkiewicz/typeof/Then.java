@@ -21,5 +21,4 @@ public class Then<S> {
 	public void orElse(Consumer<S> orElseBlock) {
 		orElseBlock.accept(object);
 	}
-
 }
