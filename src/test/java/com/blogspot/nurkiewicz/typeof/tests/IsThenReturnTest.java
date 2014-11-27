@@ -26,7 +26,7 @@ public class IsThenReturnTest {
 		assertThat(result).isEqualTo(43);
 	}
 
-    @Test
+	@Test
 	public void testReturnFirstMatchingClauseWithFixedValue() {
 		//when
 		final int result = whenTypeOf(42).
@@ -64,7 +64,7 @@ public class IsThenReturnTest {
 		assertThat(result).isEqualTo(42 - 1);
 	}
 
-    @Test
+	@Test
 	public void testReturnSubsequentWithFixedValue() {
 		//when
 		final int result = whenTypeOf(42).
@@ -129,18 +129,18 @@ public class IsThenReturnTest {
 		}
 	}
 
-    @Test
-    public void testThrowWhenGetCalledButNeitherClausesWorkedWithFixedValue() {
-        try {
-            whenTypeOf(42).
-                    is(String.class).thenReturn(-1).
-                    is(Date.class).thenReturn(-1).
-                    get();
-            failBecauseExceptionWasNotThrown(NoSuchElementException.class);
-        } catch (NoSuchElementException e) {
-            assertThat(e).hasMessage("42");
-        }
-    }
+	@Test
+	public void testThrowWhenGetCalledButNeitherClausesWorkedWithFixedValue() {
+		try {
+			whenTypeOf(42).
+					is(String.class).thenReturn(-1).
+					is(Date.class).thenReturn(-1).
+					get();
+			failBecauseExceptionWasNotThrown(NoSuchElementException.class);
+		} catch (NoSuchElementException e) {
+			assertThat(e).hasMessage("42");
+		}
+	}
 
 	@Test
 	public void shouldNotFailWhenNullPassedAndClosureOrElseResult() {
@@ -149,7 +149,7 @@ public class IsThenReturnTest {
 				is(String.class).thenReturn(String::length).
 				is(Date.class).thenReturn(d -> (int) d.getTime()).
 				is(Float.class).thenReturn(Float::intValue).
-				orElse(x -> x != null? -1 : 1);
+				orElse(x -> x != null ? -1 : 1);
 
 		//then
 		assertThat(result).isEqualTo(1);
@@ -166,5 +166,17 @@ public class IsThenReturnTest {
 
 		//then
 		assertThat(result).isEqualTo(17);
+	}
+
+	@Test
+	public void shouldNotReturnOrElseValueWhenSuccessful() {
+		// when
+		final Integer result = whenTypeOf("100").
+				is(String.class).thenReturn(Integer::valueOf).
+				is(Date.class).thenReturn(d -> (int) d.getTime()).
+				is(Float.class).thenReturn(Float::intValue).
+				orElse(x -> 12345);
+
+		assertThat(result).isEqualTo(100);
 	}
 }
