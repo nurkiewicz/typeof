@@ -1,4 +1,4 @@
-package com.blogspot.nurkiewicz.typeof;
+package com.nurkiewicz.typeof;
 
 public class WhenTypeOf<S> {
 

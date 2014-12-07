@@ -1,4 +1,4 @@
-package com.blogspot.nurkiewicz.typeof.tests;
+package com.nurkiewicz.typeof.tests;
 
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import java.util.Date;
 import java.util.function.Consumer;
 
-import static com.blogspot.nurkiewicz.typeof.TypeOf.whenTypeOf;
+import static com.nurkiewicz.typeof.TypeOf.whenTypeOf;
 import static org.mockito.Mockito.*;
 
 /**

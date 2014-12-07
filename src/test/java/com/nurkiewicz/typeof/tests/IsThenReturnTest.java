@@ -1,11 +1,11 @@
-package com.blogspot.nurkiewicz.typeof.tests;
+package com.nurkiewicz.typeof.tests;
 
 import org.testng.annotations.Test;
 
 import java.util.Date;
 import java.util.NoSuchElementException;
 
-import static com.blogspot.nurkiewicz.typeof.TypeOf.whenTypeOf;
+import static com.nurkiewicz.typeof.TypeOf.whenTypeOf;
 import static org.fest.assertions.api.Assertions.assertThat;
 import static org.fest.assertions.api.Assertions.failBecauseExceptionWasNotThrown;
 

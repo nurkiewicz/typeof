@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<name>typeof</name>
 	<description>Type-safe fluent API replacing instanceof</description>
-	<groupId>com.blogspot.nurkiewicz.typeof</groupId>
+	<groupId>com.nurkiewicz.typeof</groupId>
 	<artifactId>typeof</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<url>https://github.com/nurkiewicz/typeof</url>

@@ -1,4 +1,4 @@
-package com.blogspot.nurkiewicz.typeof;
+package com.nurkiewicz.typeof;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
