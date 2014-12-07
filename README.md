@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/nurkiewicz/typeof.svg?branch=master)](https://travis-ci.org/nurkiewicz/typeof) 
+[![Coverage Status](https://img.shields.io/coveralls/nurkiewicz/typeof.svg)](https://coveralls.io/r/nurkiewicz/typeof) 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.nurkiewicz.typeof/typeof/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.nurkiewicz.typeof/typeof) [![Apache 2](http://img.shields.io/badge/license-Apache%202-red.svg)](http://www.apache.org/licenses/LICENSE-2.0)
+
 # instanceof operator and *Visitor* pattern replacement in Java 8
 
 I had a dream where `instanceof` operator and downcasting were no longer needed but without clumsiness and verbosity of [*visitor pattern*](http://nurkiewicz.blogspot.com/2009/03/wzorzec-visitor-realny-przykad.html). So I came up with the following DSL syntax:
