@@ -90,3 +90,22 @@ Basically you start by typing `whenTypeOf()` and `Ctrl` + `space` will tell you 
 Writing DSLs is much harder than using them, but it's quite rewarding in the end. Notice how different return types are used ([`Then`](https://github.com/nurkiewicz/typeof/blob/master/src/main/java/com/blogspot/nurkiewicz/typeof/Then.java) vs. [`ThenReturn`](https://github.com/nurkiewicz/typeof/blob/master/src/main/java/com/blogspot/nurkiewicz/typeof/ThenReturn.java)) just to make sure only valid methods are accessible at each stage. An alternative is to implement run-time checks (for example that you don't write `is(...).is(...).then(...)`) - but why bother if compiler can do it for us?
 
 I hope you enjoyed this article, let me know if you are willing to try this utility in your project.
+
+# Maven
+
+This tiny utility is available in Maven Central under:
+
+```xml
+<dependency>
+    <groupId>com.nurkiewicz.typeof</groupId>
+    <artifactId>typeof</artifactId>
+    <version>0.0.1</version>
+</dependency>
+```
+
+## Releasing to Central:
+
+```
+$ mvn release:prepare -P release
+& mvn release:perform -P release
+```
