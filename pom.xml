@@ -4,7 +4,7 @@
 	<description>Type-safe fluent API replacing instanceof</description>
 	<groupId>com.nurkiewicz.typeof</groupId>
 	<artifactId>typeof</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<url>https://github.com/nurkiewicz/typeof</url>
 	<licenses>
 		<license>
@@ -21,7 +21,7 @@
 		<connection>scm:git:git@github.com:nurkiewicz/typeof.git</connection>
 		<url>scm:git:git@github.com:nurkiewicz/typeof.git</url>
 		<developerConnection>scm:git:git@github.com:nurkiewicz/typeof.git</developerConnection>
-		<tag>HEAD</tag>
+		<tag>0.0.1</tag>
 	</scm>
 
 	<developers>
